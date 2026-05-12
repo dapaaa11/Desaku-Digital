@@ -10,9 +10,11 @@ import {
 import { NewsService } from './news.service';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { RolesGuard } from '../auth/roles.guard';
 
-@UseGuards(AuthGuard('jwt'))
-@Controller('news')   
+@UseGuards(AuthGuard('jwt'), RolesGuard)
+@Controller('news')
 export class NewsController {
   constructor(private newsService: NewsService) {}
 
@@ -21,6 +23,7 @@ export class NewsController {
     return this.newsService.findAll();
   }
 
+  @Roles('ADMIN')
   @Post()
   create(@Body() body) {
     return this.newsService.create(body);
@@ -31,11 +34,13 @@ export class NewsController {
     return this.newsService.findOne(Number(id));
   }
 
+  @Roles('ADMIN')
   @Put(':id')
   update(@Param('id') id: string, @Body() body) {
     return this.newsService.update(Number(id), body);
   }
 
+  @Roles('ADMIN')
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.newsService.remove(Number(id));
