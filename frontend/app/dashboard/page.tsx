@@ -85,6 +85,23 @@ export default function Dashboard() {
     }
   };
 
+  const deleteNews = async (id: number) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      await axios.delete(`http://localhost:3000/news/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      fetchNews();
+    } catch (err) {
+      console.error(err);
+      alert("Gagal hapus berita");
+    }
+  };
+
   return (
     <div className="p-10">
       <h1 className="mb-6 text-3xl font-bold">Dashboard Admin</h1>
@@ -127,6 +144,7 @@ export default function Dashboard() {
             <h2 className="text-xl font-bold">{item.title}</h2>
 
             <p>{item.content}</p>
+
             <button
               onClick={() => {
                 setEditId(item.id);
@@ -136,6 +154,13 @@ export default function Dashboard() {
               className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
             >
               Edit
+            </button>
+
+            <button
+              onClick={() => deleteNews(item.id)}
+              className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
+            >
+              Hapus
             </button>
           </div>
         ))}
