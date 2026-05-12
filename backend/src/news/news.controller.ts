@@ -8,8 +8,11 @@ import {
   Delete,
 } from '@nestjs/common';
 import { NewsService } from './news.service';
+import { UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
-@Controller('news')
+@UseGuards(AuthGuard('jwt'))
+@Controller('news')   
 export class NewsController {
   constructor(private newsService: NewsService) {}
 
