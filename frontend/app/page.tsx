@@ -1,50 +1,43 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const login = async () => {
     try {
-      const res = await axios.post(
-        'http://localhost:3000/auth/login',
-        {
-          email,
-          password,
-        }
-      );
+      const res = await axios.post("http://localhost:3000/auth/login", {
+        email,
+        password,
+      });
 
-      localStorage.setItem(
-        'token',
-        res.data.access_token
-      );
+      localStorage.setItem("token", res.data.access_token);
 
-      alert('Login berhasil');
+      router.push('/dashboard');
       console.log(res.data);
     } catch (err) {
       console.error(err);
-      alert('Login gagal');
+      alert("Login gagal");
     }
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="w-[400px] rounded-xl border p-6 shadow">
-        <h1 className="mb-4 text-2xl font-bold">
-          Login Admin
-        </h1>
+        <h1 className="mb-4 text-2xl font-bold">Login Admin</h1>
 
         <input
           type="email"
           placeholder="Email"
           className="mb-3 w-full rounded border p-2"
           value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
@@ -52,9 +45,7 @@ export default function Home() {
           placeholder="Password"
           className="mb-3 w-full rounded border p-2"
           value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
