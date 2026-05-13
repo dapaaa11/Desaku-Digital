@@ -191,9 +191,18 @@ export default function Dashboard() {
             key={item.id}
             className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
           >
+            
+            {item.image && (
+              <img
+                src={`http://localhost:3000/uploads/${item.image}`}
+                alt={item.title}
+                className="mb-4 h-56 w-full rounded-xl object-cover"
+              />
+            )}
+
             <h2 className="text-xl font-bold">{item.title}</h2>
 
-            <p>{item.content}</p>
+            <p className="mt-2 text-gray-600">{item.content}</p>
 
             <button
               onClick={() => {
