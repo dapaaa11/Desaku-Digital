@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
   const [news, setNews] = useState([]);
@@ -10,7 +11,16 @@ export default function Dashboard() {
   const [content, setContent] = useState("");
   const [editId, setEditId] = useState<number | null>(null);
 
+  const router = useRouter();
+
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/");
+      return;
+    }
+
     fetchNews();
   }, []);
 
@@ -102,9 +112,25 @@ export default function Dashboard() {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+
+    router.push("/");
+  };
+
   return (
     <div className="p-10">
-      <h1 className="mb-6 text-3xl font-bold">Dashboard Admin</h1>
+      
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Dashboard Admin</h1>
+
+        <button
+          onClick={logout}
+          className="rounded bg-red-500 px-4 py-2 text-white"
+        >
+          Logout
+        </button>
+      </div>
 
       <div className="mb-8 rounded border p-4">
         <h2 className="mb-4 text-xl font-bold">Tambah Berita</h2>
