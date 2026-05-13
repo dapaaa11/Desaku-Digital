@@ -41,7 +41,7 @@ export default function Dashboard() {
       console.error(err);
     }
   };
-// 
+
   const createNews = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -121,8 +121,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-10">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="min-h-screen bg-gray-100 p-8">
+      <div className="mb-8 flex items-center justify-between rounded-2xl bg-white p-6 shadow">
         <h1 className="text-3xl font-bold">Dashboard Admin</h1>
 
         <button
@@ -133,7 +133,27 @@ export default function Dashboard() {
         </button>
       </div>
 
-      <div className="mb-8 rounded border p-4">
+      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="rounded-2xl bg-white p-6 shadow">
+          <h2 className="text-gray-500">Total Berita</h2>
+
+          <p className="mt-2 text-3xl font-bold">{news.length}</p>
+        </div>
+
+        <div className="rounded-2xl bg-white p-6 shadow">
+          <h2 className="text-gray-500">Status Admin</h2>
+
+          <p className="mt-2 text-2xl font-bold text-green-600">Active</p>
+        </div>
+
+        <div className="rounded-2xl bg-white p-6 shadow">
+          <h2 className="text-gray-500">Sistem</h2>
+
+          <p className="mt-2 text-2xl font-bold">Online</p>
+        </div>
+      </div>
+
+      <div className="mb-8 rounded-2xl bg-white p-6 shadow">
         <h2 className="mb-4 text-xl font-bold">Tambah Berita</h2>
 
         <input
@@ -159,7 +179,7 @@ export default function Dashboard() {
               createNews();
             }
           }}
-          className="rounded bg-black px-4 py-2 text-white"
+          className="rounded-xl bg-black px-5 py-2 text-white transition hover:opacity-90"
         >
           {editId ? "Update" : "Tambah"}
         </button>
@@ -167,7 +187,10 @@ export default function Dashboard() {
 
       <div className="space-y-4">
         {news.map((item: any) => (
-          <div key={item.id} className="rounded border p-4 shadow">
+          <div
+            key={item.id}
+            className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
+          >
             <h2 className="text-xl font-bold">{item.title}</h2>
 
             <p>{item.content}</p>
