@@ -28,6 +28,8 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
+      if (!token) return;
+
       const res = await axios.get("http://localhost:3000/news", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -120,7 +122,6 @@ export default function Dashboard() {
 
   return (
     <div className="p-10">
-      
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">Dashboard Admin</h1>
 
