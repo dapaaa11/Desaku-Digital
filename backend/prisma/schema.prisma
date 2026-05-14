@@ -41,6 +41,16 @@ model Product {
   whatsapp    String
 }
 
+model VillageProfile {
+  id        Int      @id @default(autoincrement())
+  name      String
+  about     String
+  vision    String
+  mission   String
+  address   String
+  createdAt DateTime @default(now())
+}
+
 enum Role {
   ADMIN
   USER
