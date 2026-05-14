@@ -8,6 +8,7 @@
 - Galeri Desa CMS (Bulk upload, preview, CRUD + update gambar)
 - UMKM Desa CMS (Katalog produk lokal, full CRUD)
 - Pengajuan Surat (backend + frontend CMS)
+- Dokumentasi Teknis (API & Database)
 
 ## Sedang Dikerjakan
 
