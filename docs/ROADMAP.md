@@ -12,8 +12,12 @@
 - Setup Mobile App Flutter (Struktur, Provider, Base API Integrasi)
 - Mobile App Flutter (warga) - Fitur Pengajuan Surat
 - Mobile App Flutter (warga) - Fitur Autentikasi / Auto Login
+- Stabilisasi & Integrasi End-to-End (bug fix, analyzer clean, finalisasi)
 
 ## Sedang Dikerjakan
-- Integrasi penuh CMS dan Mobile App / Finalisasi
+- (Selesai semua tahap utama)
 
 ## Berikutnya
+- Deploy ke server / produksi
+- Push Notification (opsional)
+- Manajemen profil warga (opsional)

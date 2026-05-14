@@ -21,15 +21,10 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
   }
 
   Color _getStatusColor(String status) {
-    switch (status) {
-      case 'Selesai':
-        return Colors.green;
-      case 'Ditolak':
-        return Colors.red;
-      case 'Diproses':
-      default:
-        return Colors.orange;
-    }
+    final s = status.toUpperCase();
+    if (s == 'SELESAI') return Colors.green;
+    if (s == 'DITOLAK') return Colors.red;
+    return Colors.orange;
   }
 
   @override
@@ -111,7 +106,7 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF1E3A5F).withOpacity(0.1),
+                              color: const Color(0xFF1E3A5F).withValues(alpha: 0.1),
                               shape: BoxShape.circle,
                             ),
                             child: const Icon(Icons.description_outlined, color: Color(0xFF1E3A5F)),
@@ -136,9 +131,9 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                             decoration: BoxDecoration(
-                              color: _getStatusColor(item.status).withOpacity(0.1),
+                              color: _getStatusColor(item.status).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: _getStatusColor(item.status).withOpacity(0.5)),
+                              border: Border.all(color: _getStatusColor(item.status).withValues(alpha: 0.5)),
                             ),
                             child: Text(
                               item.status,

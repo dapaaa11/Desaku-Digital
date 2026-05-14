@@ -75,7 +75,7 @@ model Surat {
   nik       String
   jenis     String
   keperluan String
-  status    String   @default("DIPROSES")
+  status    String   @default("Diproses")
   createdAt DateTime @default(now())
 }
 

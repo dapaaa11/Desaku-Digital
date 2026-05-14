@@ -7,27 +7,17 @@ class SuratDetailScreen extends StatelessWidget {
   const SuratDetailScreen({super.key, required this.surat});
 
   Color _getStatusColor(String status) {
-    switch (status) {
-      case 'Selesai':
-        return Colors.green;
-      case 'Ditolak':
-        return Colors.red;
-      case 'Diproses':
-      default:
-        return Colors.orange;
-    }
+    final s = status.toUpperCase();
+    if (s == 'SELESAI') return Colors.green;
+    if (s == 'DITOLAK') return Colors.red;
+    return Colors.orange; // Default: Diproses / DIPROSES
   }
 
   IconData _getStatusIcon(String status) {
-    switch (status) {
-      case 'Selesai':
-        return Icons.check_circle;
-      case 'Ditolak':
-        return Icons.cancel;
-      case 'Diproses':
-      default:
-        return Icons.pending_actions;
-    }
+    final s = status.toUpperCase();
+    if (s == 'SELESAI') return Icons.check_circle;
+    if (s == 'DITOLAK') return Icons.cancel;
+    return Icons.pending_actions;
   }
 
   @override

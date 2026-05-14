@@ -91,23 +91,25 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 28),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Selamat Datang 👋',
-                    style: TextStyle(color: Colors.white70, fontSize: 14),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Layanan Digital Warga',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+              child: Consumer<AuthService>(
+                builder: (context, auth, _) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Selamat Datang 👋',
+                      style: const TextStyle(color: Colors.white70, fontSize: 14),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 4),
+                    Text(
+                      auth.name ?? 'Warga Desa',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
@@ -188,7 +190,7 @@ class _MenuCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -200,7 +202,7 @@ class _MenuCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, size: 32, color: color),

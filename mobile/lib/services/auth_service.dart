@@ -23,6 +23,9 @@ class AuthService extends ChangeNotifier {
     _token = prefs.getString('token');
     _name = prefs.getString('name');
     _role = prefs.getString('role');
+    if (_token != null) {
+      ApiClient.setToken(_token!);
+    }
     notifyListeners();
   }
 

@@ -46,6 +46,7 @@ PostgreSQL + Prisma
 - Inisialisasi Mobile App Flutter Warga (Provider, Dio, Base API)
 - Mobile App: Fitur Pengajuan Surat (Riwayat, Form Input Validasi, Status Tracking)
 - Mobile App: Fitur Autentikasi Warga (Login, Register, Logout, Auto-login JWT)
+- Stabilisasi & Integrasi End-to-End (Bug fix status case, deprecations, analyzer clean)
 
 ## Progress Log
 - [14 May 2026] Menyelesaikan pembuatan Halaman Profil Desa CMS, integrasi backend dengan FileInterceptor, validasi form, dan upload foto desa.
@@ -58,3 +59,4 @@ PostgreSQL + Prisma
 - [15 May 2026] Setup kerangka awal aplikasi Mobile App Flutter menggunakan `Provider` (State Management) dan `Dio` (HTTP Client). Pembuatan kerangka halaman: Splash Screen, Home, Berita, Profil, Galeri, dan UMKM Desa yang telah diintegrasikan dengan Base API Backend (NestJS).
 - [15 May 2026] Menyelesaikan fitur Pengajuan Surat di Mobile App: Menerapkan UI Riwayat Surat (Pull-to-refresh), Form Input (Validasi nama, NIK 16 digit, dropdown jenis surat), dan Detail Status Surat. Terintegrasi ke REST API backend menggunakan arsitektur Provider-Service.
 - [15 May 2026] Menyelesaikan fitur Autentikasi (Auth) di Mobile App: Login, Register, integrasi SharedPreferences untuk auto-login, manajemen JWT token dinamis via Dio Interceptor, dan perbaikan alur navigasi dari Splash Screen.
+- [15 May 2026] Finalisasi & Stabilisasi: Memperbaiki bug kritis inkonsistensi status surat (DIPROSES vs Diproses) di schema Prisma dan mobile app. Menerapkan perbandingan status case-insensitive di seluruh screen. Menampilkan nama pengguna di HomeScreen. Memperbaiki seluruh deprecation warning (withOpacity, value Dropdown). Dart analyze: No issues found.
