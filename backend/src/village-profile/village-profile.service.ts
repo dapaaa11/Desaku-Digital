@@ -3,9 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class VillageProfileService {
-  constructor(
-    private prisma: PrismaService,
-  ) {}
+  constructor(private prisma: PrismaService) {}
 
   findAll() {
     return this.prisma.villageProfile.findMany();

@@ -48,6 +48,7 @@ model VillageProfile {
   vision    String
   mission   String
   address   String
+  image     String?
   createdAt DateTime @default(now())
 }
 
