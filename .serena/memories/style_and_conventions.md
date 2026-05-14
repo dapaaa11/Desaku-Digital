@@ -1,0 +1,3 @@
+- Language: TypeScript across both frontend and backend.
+- Code Formatting: Uses Prettier on the backend (`npm run format`), and ESLint for linting on both ends.
+- Framework Guidelines: Follow Next.js App Router conventions in the frontend and NestJS module/controller/service architecture in the backend.
