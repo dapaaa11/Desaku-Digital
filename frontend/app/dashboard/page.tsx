@@ -18,6 +18,7 @@ export default function Dashboard() {
 
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -70,6 +71,8 @@ export default function Dashboard() {
   };
 
   const createNews = async () => {
+    setLoading(true);
+
     try {
       const token = localStorage.getItem("token");
 
@@ -100,10 +103,14 @@ export default function Dashboard() {
     } catch (err) {
       console.error(err);
       toast.error("Gagal tambah berita");
+    } finally {
+      setLoading(false);
     }
   };
 
   const updateNews = async () => {
+    setLoading(true);
+
     try {
       const token = localStorage.getItem("token");
 
@@ -130,6 +137,8 @@ export default function Dashboard() {
     } catch (err) {
       console.error(err);
       toast.error("Gagal update berita");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -233,6 +242,7 @@ export default function Dashboard() {
           )}
 
           <button
+            disabled={loading}
             onClick={() => {
               if (editId) {
                 updateNews();
@@ -240,9 +250,9 @@ export default function Dashboard() {
                 createNews();
               }
             }}
-            className="rounded-xl bg-black px-5 py-2 text-white transition hover:opacity-90"
+            className="rounded-xl bg-black px-5 py-2 text-white transition hover:opacity-90 disabled:opacity-50"
           >
-            {editId ? "Update" : "Tambah"}
+            {loading ? "Loading..." : editId ? "Update" : "Tambah"}
           </button>
         </div>
 
