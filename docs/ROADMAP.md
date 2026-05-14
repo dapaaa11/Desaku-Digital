@@ -9,8 +9,9 @@
 - UMKM Desa CMS (Katalog produk lokal, full CRUD)
 - Pengajuan Surat (backend + frontend CMS)
 - Dokumentasi Teknis (API & Database)
+- Setup Mobile App Flutter (Struktur, Provider, Base API Integrasi)
 
 ## Sedang Dikerjakan
+- Mobile App Flutter (warga) - Pengembangan fitur lanjutan
 
 ## Berikutnya
-- Mobile App Flutter (warga)
