@@ -7,6 +7,15 @@ import Sidebar from "@/components/Sidebar";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
 export default function Dashboard() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("");
@@ -187,6 +196,17 @@ export default function Dashboard() {
     currentPage * itemsPerPage,
   );
 
+  const chartData = [
+    {
+      name: "Berita",
+      total: news.length,
+    },
+    {
+      name: "User",
+      total: totalUsers,
+    },
+  ];
+
   return (
     <div className="flex">
       <Sidebar />
@@ -343,6 +363,21 @@ export default function Dashboard() {
               Next
             </button>
           </div>
+        </div>
+      </div>
+      <div className="mb-8 rounded-2xl bg-white p-6 shadow">
+        <h2 className="mb-4 text-xl font-bold">Statistik Sistem</h2>
+
+        <div className="h-72">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={chartData}>
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+
+              <Bar dataKey="total" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </div>
