@@ -47,6 +47,7 @@ PostgreSQL + Prisma
 - Mobile App: Fitur Pengajuan Surat (Riwayat, Form Input Validasi, Status Tracking)
 - Mobile App: Fitur Autentikasi Warga (Login, Register, Logout, Auto-login JWT)
 - Stabilisasi & Integrasi End-to-End (Bug fix status case, deprecations, analyzer clean)
+- End-to-End Testing Menyeluruh (8 bug fix: auth guard, navigasi, layout, SEO, route conflict, case-insensitive)
 
 ## Progress Log
 - [14 May 2026] Menyelesaikan pembuatan Halaman Profil Desa CMS, integrasi backend dengan FileInterceptor, validasi form, dan upload foto desa.
@@ -60,3 +61,4 @@ PostgreSQL + Prisma
 - [15 May 2026] Menyelesaikan fitur Pengajuan Surat di Mobile App: Menerapkan UI Riwayat Surat (Pull-to-refresh), Form Input (Validasi nama, NIK 16 digit, dropdown jenis surat), dan Detail Status Surat. Terintegrasi ke REST API backend menggunakan arsitektur Provider-Service.
 - [15 May 2026] Menyelesaikan fitur Autentikasi (Auth) di Mobile App: Login, Register, integrasi SharedPreferences untuk auto-login, manajemen JWT token dinamis via Dio Interceptor, dan perbaikan alur navigasi dari Splash Screen.
 - [15 May 2026] Finalisasi & Stabilisasi: Memperbaiki bug kritis inkonsistensi status surat (DIPROSES vs Diproses) di schema Prisma dan mobile app. Menerapkan perbandingan status case-insensitive di seluruh screen. Menampilkan nama pengguna di HomeScreen. Memperbaiki seluruh deprecation warning (withOpacity, value Dropdown). Dart analyze: No issues found.
+- [15 May 2026] End-to-End Testing Menyeluruh (Backend, CMS Admin, Mobile Flutter): Memperbaiki 8 bug kritis: (1) NewsController mengunci GET /news di balik JWT — diperbaiki agar publik untuk mobile, (2) Route conflict GET /news/test vs GET /news/:id — route test dihapus, (3) Dashboard BarChart dirender di luar flex container — layout diperbaiki, (4) Metadata layout masih 'Create Next App' — diubah ke 'Desaku Digital', (5) Halaman Users dan Village Profile CMS tidak ada auth guard — ditambahkan redirect, (6) KRITIS: LoginScreen Flutter menggunakan pushReplacementNamed('/home') padahal tidak ada named route — crash setelah login, diperbaiki ke pushAndRemoveUntil, (7) Surat CMS getStatusColor case-sensitive — diperbaiki case-insensitive, (8) Prisma Client belum di-generate ulang — di-generate. TypeScript backend: 0 error. Frontend build: success. Semua fitur stabil.

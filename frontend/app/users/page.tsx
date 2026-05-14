@@ -2,10 +2,12 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
+  const router = useRouter();
 
   async function fetchUsers() {
     try {
@@ -24,7 +26,13 @@ export default function UsersPage() {
   }
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/");
+      return;
+    }
     fetchUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const changeRole = async (id: number, role: string) => {

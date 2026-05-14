@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import toast from "react-hot-toast";
 
@@ -16,6 +17,7 @@ interface Profile {
 }
 
 export default function VillageProfilePage() {
+  const router = useRouter();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -56,7 +58,13 @@ export default function VillageProfilePage() {
   }
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/");
+      return;
+    }
     fetchProfile();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

@@ -364,20 +364,20 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-      </div>
-      <div className="mb-8 rounded-2xl bg-white p-6 shadow">
-        <h2 className="mb-4 text-xl font-bold">Statistik Sistem</h2>
+        <div className="mb-8 rounded-2xl bg-white p-6 shadow">
+          <h2 className="mb-4 text-xl font-bold">Statistik Sistem</h2>
 
-        <div className="h-72">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
+          <div className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
 
-              <Bar dataKey="total" />
-            </BarChart>
-          </ResponsiveContainer>
+                <Bar dataKey="total" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>

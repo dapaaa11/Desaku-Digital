@@ -130,7 +130,6 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
               ),
               const SizedBox(height: 16),
 
-              // ignore: deprecated_member_use
               DropdownButtonFormField<String>(
                 value: _selectedJenis,
                 decoration: InputDecoration(
