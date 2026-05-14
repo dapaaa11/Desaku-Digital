@@ -40,9 +40,11 @@ PostgreSQL + Prisma
 - Galeri CMS: Auth guard redirect jika tidak ada token
 - Galeri CMS: Lazy loading gambar galeri
 - Galeri CMS: Mode Edit dengan preview gambar saat ini + tombol Batal
+- Fitur UMKM Desa CMS (Full CRUD, Upload Foto, Sidebar Integration, JWT Protected)
 
 ## Progress Log
 - [14 May 2026] Menyelesaikan pembuatan Halaman Profil Desa CMS, integrasi backend dengan FileInterceptor, validasi form, dan upload foto desa.
 - [14 May 2026] Menyelesaikan optimasi UX Halaman Profil Desa, menambah loading state, dynamic button, dan konsistensi UI dengan dashboard.
 - [14 May 2026] Menyelesaikan fitur Galeri Desa CMS dengan kapabilitas bulk upload, preview gambar, aksi CRUD (edit judul, hapus), dan penambahan menu di sidebar.
 - [15 May 2026] Refinement Galeri CMS: Align UX edit dengan Dashboard (gunakan form utama bukan Swal input), tambah update gambar saat edit, proper URL.createObjectURL cleanup, auth guard redirect, lazy loading, indikator loading animasi, dan tombol Batal saat mode edit.
+- [15 May 2026] Menyelesaikan fitur UMKM Desa CMS: Pembuatan model Prisma `Umkm`, NestJS REST API, full CRUD dengan AuthGuard JWT, upload dan edit foto UMKM, integrasi dengan menu Sidebar, dan konsistensi UX.

@@ -54,6 +54,17 @@ export default function Sidebar() {
         </Link>
 
         <Link
+          href="/umkm"
+          className={`block rounded p-3 transition ${
+            pathname === "/umkm"
+              ? "bg-blue-500"
+              : "hover:bg-gray-700"
+          }`}
+        >
+          🏪 UMKM Desa
+        </Link>
+
+        <Link
           href="/users"
           className={`block rounded p-3 transition ${
             pathname === "/users"

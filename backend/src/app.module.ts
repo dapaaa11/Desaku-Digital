@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { VillageProfileModule } from './village-profile/village-profile.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { UmkmModule } from './umkm/umkm.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { GalleryModule } from './gallery/gallery.module';
     UsersModule,
     VillageProfileModule,
     GalleryModule,
+    UmkmModule,
   ],
 })
 export class AppModule {}
