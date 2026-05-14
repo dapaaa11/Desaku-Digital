@@ -76,7 +76,7 @@ export default function Dashboard() {
       alert("Gagal tambah berita");
     }
   };
-// 
+  
   const updateNews = async () => {
     try {
       const token = localStorage.getItem("token");
