@@ -7,6 +7,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function Dashboard() {
   const [news, setNews] = useState([]);
+  const [search, setSearch] = useState("");
   const [totalUsers, setTotalUsers] = useState(0);
 
   const [title, setTitle] = useState("");
@@ -231,49 +232,61 @@ export default function Dashboard() {
           </button>
         </div>
 
-        <div className="space-y-4">
-          {news.map((item: any) => (
-            <div
-              key={item.id}
-              className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              {item.image && (
-                <img
-                  src={`http://localhost:3000/uploads/${item.image}`}
-                  alt={item.title}
-                  className="mb-4 h-56 w-full rounded-xl object-cover"
-                />
-              )}
+        <div className="mb-6 rounded-2xl bg-white p-4 shadow">
+          <input
+            type="text"
+            placeholder="Cari berita..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full rounded border p-3"
+          />
 
-              <h2 className="text-xl font-bold">{item.title}</h2>
-
-              <p className="mt-2 text-gray-600">{item.content}</p>
-
-              <button
-                onClick={() => {
-                  setEditId(item.id);
-                  setTitle(item.title);
-                  setContent(item.content);
-
-                  setPreview(
-                    item.image
-                      ? `http://localhost:3000/uploads/${item.image}`
-                      : "",
-                  );
-                }}
-                className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
+          {news
+            .filter((item: any) =>
+              item.title.toLowerCase().includes(search.toLowerCase()),
+            )
+            .map((item: any) => (
+              <div
+                key={item.id}
+                className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
               >
-                Edit
-              </button>
+                {item.image && (
+                  <img
+                    src={`http://localhost:3000/uploads/${item.image}`}
+                    alt={item.title}
+                    className="mb-4 h-56 w-full rounded-xl object-cover"
+                  />
+                )}
 
-              <button
-                onClick={() => deleteNews(item.id)}
-                className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
-              >
-                Hapus
-              </button>
-            </div>
-          ))}
+                <h2 className="text-xl font-bold">{item.title}</h2>
+
+                <p className="mt-2 text-gray-600">{item.content}</p>
+
+                <button
+                  onClick={() => {
+                    setEditId(item.id);
+                    setTitle(item.title);
+                    setContent(item.content);
+
+                    setPreview(
+                      item.image
+                        ? `http://localhost:3000/uploads/${item.image}`
+                        : "",
+                    );
+                  }}
+                  className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
+                >
+                  Edit
+                </button>
+
+                <button
+                  onClick={() => deleteNews(item.id)}
+                  className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
+                >
+                  Hapus
+                </button>
+              </div>
+            ))}
         </div>
       </div>
     </div>
