@@ -7,6 +7,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function Dashboard() {
   const [news, setNews] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -26,7 +27,26 @@ export default function Dashboard() {
     }
 
     fetchNews();
+    fetchUsersCount();
   }, []);
+
+  const fetchUsersCount = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) return;
+
+      const res = await axios.get("http://localhost:3000/users", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setTotalUsers(res.data.length);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const fetchNews = async () => {
     try {
@@ -146,9 +166,9 @@ export default function Dashboard() {
           </div>
 
           <div className="rounded-2xl bg-white p-6 shadow">
-            <h2 className="text-gray-500">Status Admin</h2>
+            <h2 className="text-gray-500">Total User</h2>
 
-            <p className="mt-2 text-2xl font-bold text-green-600">Active</p>
+            <p className="mt-2 text-3xl font-bold">{totalUsers}</p>
           </div>
 
           <div className="rounded-2xl bg-white p-6 shadow">
