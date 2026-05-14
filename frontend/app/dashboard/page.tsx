@@ -34,19 +34,7 @@ export default function Dashboard() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      router.push("/");
-      return;
-    }
-
-    fetchNews();
-    fetchUsersCount();
-  }, []);
-
-  const fetchUsersCount = async () => {
+  async function fetchUsersCount() {
     try {
       const token = localStorage.getItem("token");
 
@@ -62,9 +50,9 @@ export default function Dashboard() {
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
-  const fetchNews = async () => {
+  async function fetchNews() {
     try {
       const token = localStorage.getItem("token");
 
@@ -80,7 +68,19 @@ export default function Dashboard() {
     } catch (err) {
       console.error(err);
     }
-  };
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      router.push("/");
+      return;
+    }
+
+    fetchNews();
+    fetchUsersCount();
+  }, []);
 
   const createNews = async () => {
     setLoading(true);

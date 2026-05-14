@@ -1,12 +1,8 @@
 # Roadmap Desaku Digital
 
 ## Sedang Dikerjakan
-- Peningkatan performa aplikasi
+- Pengajuan Surat
 
 ## Berikutnya
-
-## Future
 - Mobile App Flutter
 - UMKM Desa
-- Galeri Desa
-- Pengajuan Surat

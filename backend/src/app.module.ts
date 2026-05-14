@@ -4,6 +4,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { VillageProfileModule } from './village-profile/village-profile.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { VillageProfileModule } from './village-profile/village-profile.module';
     PrismaModule,
     UsersModule,
     VillageProfileModule,
+    GalleryModule,
   ],
 })
 export class AppModule {}

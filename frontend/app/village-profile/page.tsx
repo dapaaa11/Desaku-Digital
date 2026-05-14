@@ -29,11 +29,7 @@ export default function VillageProfilePage() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
-
-  const fetchProfile = async () => {
+  async function fetchProfile() {
     try {
       setLoading(true);
       const res = await axios.get("http://localhost:3000/village-profile");
@@ -57,7 +53,11 @@ export default function VillageProfilePage() {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({

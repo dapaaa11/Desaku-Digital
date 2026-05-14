@@ -43,6 +43,17 @@ export default function Sidebar() {
         </Link>
 
         <Link
+          href="/gallery"
+          className={`block rounded p-3 transition ${
+            pathname === "/gallery"
+              ? "bg-blue-500"
+              : "hover:bg-gray-700"
+          }`}
+        >
+          🖼️ Galeri Desa
+        </Link>
+
+        <Link
           href="/users"
           className={`block rounded p-3 transition ${
             pathname === "/users"

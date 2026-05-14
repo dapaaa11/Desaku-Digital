@@ -7,11 +7,7 @@ import Sidebar from "@/components/Sidebar";
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
+  async function fetchUsers() {
     try {
       const token = localStorage.getItem("token");
 
@@ -25,7 +21,11 @@ export default function UsersPage() {
     } catch (err) {
       console.error(err);
     }
-  };
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   const changeRole = async (id: number, role: string) => {
     try {
