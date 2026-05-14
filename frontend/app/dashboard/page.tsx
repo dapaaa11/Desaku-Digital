@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import toast from "react-hot-toast";
 
 export default function Dashboard() {
   const [news, setNews] = useState([]);
@@ -93,9 +94,11 @@ export default function Dashboard() {
       setPreview("");
 
       fetchNews();
+
+      toast.success("Berita berhasil ditambahkan");
     } catch (err) {
       console.error(err);
-      alert("Gagal tambah berita");
+      toast.error("Gagal tambah berita");
     }
   };
 
@@ -121,9 +124,11 @@ export default function Dashboard() {
       setEditId(null);
 
       fetchNews();
+
+      toast.success("Berita berhasil diperbarui");
     } catch (err) {
       console.error(err);
-      alert("Gagal update berita");
+      toast.error("Gagal update berita");
     }
   };
 
@@ -138,16 +143,12 @@ export default function Dashboard() {
       });
 
       fetchNews();
+
+      toast.success("Berita berhasil dihapus");
     } catch (err) {
       console.error(err);
-      alert("Gagal hapus berita");
+      toast.error("Gagal hapus berita");
     }
-  };
-
-  const logout = () => {
-    localStorage.removeItem("token");
-
-    router.push("/");
   };
 
   return (
