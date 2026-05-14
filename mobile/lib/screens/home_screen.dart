@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../services/auth_service.dart';
 import 'news_screen.dart';
 import 'profile_screen.dart';
 import 'gallery_screen.dart';
 import 'umkm_screen.dart';
 import 'surat_history_screen.dart';
+import 'login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,9 +57,22 @@ class HomeScreen extends StatelessWidget {
         centerTitle: false,
         elevation: 0,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.white),
-            onPressed: () {},
+          Consumer<AuthService>(
+            builder: (context, auth, _) {
+              return IconButton(
+                icon: const Icon(Icons.logout, color: Colors.white),
+                tooltip: 'Keluar',
+                onPressed: () async {
+                  await auth.logout();
+                  if (context.mounted) {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => const LoginScreen()),
+                      (route) => false,
+                    );
+                  }
+                },
+              );
+            },
           ),
         ],
       ),

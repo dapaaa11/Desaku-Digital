@@ -11,8 +11,9 @@
 - Dokumentasi Teknis (API & Database)
 - Setup Mobile App Flutter (Struktur, Provider, Base API Integrasi)
 - Mobile App Flutter (warga) - Fitur Pengajuan Surat
+- Mobile App Flutter (warga) - Fitur Autentikasi / Auto Login
 
 ## Sedang Dikerjakan
-- Mobile App Flutter (warga) - Fitur Autentikasi / Lanjutan
+- Integrasi penuh CMS dan Mobile App / Finalisasi
 
 ## Berikutnya

@@ -6,11 +6,13 @@ import 'services/village_profile_service.dart';
 import 'services/gallery_service.dart';
 import 'services/umkm_service.dart';
 import 'services/surat_service.dart';
+import 'services/auth_service.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => AuthService()),
         ChangeNotifierProvider(create: (_) => NewsService()),
         ChangeNotifierProvider(create: (_) => VillageProfileService()),
         ChangeNotifierProvider(create: (_) => GalleryService()),

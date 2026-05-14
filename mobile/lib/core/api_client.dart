@@ -3,36 +3,38 @@ import 'constants.dart';
 
 class ApiClient {
   static Dio? _dio;
+  static String? _token;
 
   static Dio get dio {
     _dio ??= Dio(BaseOptions(
       baseUrl: AppConstants.baseUrl,
       connectTimeout: const Duration(seconds: 15),
       receiveTimeout: const Duration(seconds: 15),
-      headers: {'Content-Type': 'application/json'},
     ));
 
-    // Request/Response logging (hapus di production)
-    _dio!.interceptors.add(LogInterceptor(
-      requestBody: true,
-      responseBody: true,
-      error: true,
+    _dio!.interceptors.clear();
+
+    // Interceptor: Otomatis menyematkan JWT token jika tersedia
+    _dio!.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        if (_token != null) {
+          options.headers['Authorization'] = 'Bearer $_token';
+        }
+        options.headers['Content-Type'] = 'application/json';
+        return handler.next(options);
+      },
     ));
 
     return _dio!;
   }
 
-  /// Membuat instance Dio baru dengan Authorization header JWT
-  static Dio authorizedDio(String token) {
-    final authorizedClient = Dio(BaseOptions(
-      baseUrl: AppConstants.baseUrl,
-      connectTimeout: const Duration(seconds: 15),
-      receiveTimeout: const Duration(seconds: 15),
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token',
-      },
-    ));
-    return authorizedClient;
+  static void setToken(String token) {
+    _token = token;
+    _dio = null; // Reset so interceptor picks up new token
+  }
+
+  static void clearToken() {
+    _token = null;
+    _dio = null;
   }
 }
