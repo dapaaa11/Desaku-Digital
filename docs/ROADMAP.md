@@ -1,11 +1,9 @@
 # Roadmap Desaku Digital
 
 ## Sedang Dikerjakan
-- UI/UX improvement
-- Optimasi dashboard
+- Peningkatan performa aplikasi
 
 ## Berikutnya
-- Peningkatan performa aplikasi
 
 ## Future
 - Mobile App Flutter

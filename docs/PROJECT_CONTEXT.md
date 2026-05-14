@@ -33,6 +33,8 @@ PostgreSQL + Prisma
 - Halaman Profil Desa CMS
 - Validasi form Profil Desa
 - Upload foto desa
+- Optimasi UX halaman Profil Desa (Konsistensi UI, Loading State, Dynamic Button)
 
 ## Progress Log
 - [14 May 2026] Menyelesaikan pembuatan Halaman Profil Desa CMS, integrasi backend dengan FileInterceptor, validasi form, dan upload foto desa.
+- [14 May 2026] Menyelesaikan optimasi UX Halaman Profil Desa, menambah loading state, dynamic button, dan konsistensi UI dengan dashboard.

@@ -150,11 +150,11 @@ export default function VillageProfilePage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex">
       <Sidebar />
 
-      <div className="flex-1 p-10">
-        <div className="mx-auto max-w-4xl rounded-lg bg-white p-8 shadow">
+      <div className="min-h-screen flex-1 bg-gray-100 p-8">
+        <div className="mb-8 rounded-2xl bg-white p-6 shadow">
           <h1 className="mb-6 text-3xl font-bold text-gray-800">Profil Desa</h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -197,7 +197,7 @@ export default function VillageProfilePage() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full rounded border p-2"
                   placeholder="Masukkan nama desa"
                 />
               </div>
@@ -209,7 +209,7 @@ export default function VillageProfilePage() {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full rounded border p-2"
                   placeholder="Masukkan alamat desa"
                 />
               </div>
@@ -221,7 +221,7 @@ export default function VillageProfilePage() {
                   rows={4}
                   value={formData.about}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full rounded border p-2"
                   placeholder="Deskripsi singkat tentang desa"
                 ></textarea>
               </div>
@@ -233,7 +233,7 @@ export default function VillageProfilePage() {
                   rows={4}
                   value={formData.vision}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full rounded border p-2"
                   placeholder="Visi desa"
                 ></textarea>
               </div>
@@ -245,7 +245,7 @@ export default function VillageProfilePage() {
                   rows={4}
                   value={formData.mission}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full rounded border p-2"
                   placeholder="Misi desa"
                 ></textarea>
               </div>
@@ -255,9 +255,9 @@ export default function VillageProfilePage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="rounded-md bg-blue-600 px-6 py-2 text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-400"
+                className="rounded-xl bg-black px-5 py-2 text-white transition hover:opacity-90 disabled:opacity-50"
               >
-                {submitting ? "Menyimpan..." : "Simpan Perubahan"}
+                {submitting ? "Loading..." : profile && profile.id ? "Update Profil" : "Simpan Profil"}
               </button>
             </div>
           </form>
