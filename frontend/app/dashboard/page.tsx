@@ -10,7 +10,10 @@ import Swal from "sweetalert2";
 export default function Dashboard() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
+
+  const itemsPerPage = 5;
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -173,6 +176,17 @@ export default function Dashboard() {
     }
   };
 
+  const filteredNews = news.filter((item: any) =>
+    item.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+
+  const paginatedNews = filteredNews.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
+
   return (
     <div className="flex">
       <Sidebar />
@@ -265,52 +279,70 @@ export default function Dashboard() {
             className="w-full rounded border p-3"
           />
 
-          {news
-            .filter((item: any) =>
-              item.title.toLowerCase().includes(search.toLowerCase()),
-            )
-            .map((item: any) => (
-              <div
-                key={item.id}
-                className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
+          {paginatedNews.map((item: any) => (
+            <div
+              key={item.id}
+              className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
+            >
+              {item.image && (
+                <img
+                  src={`http://localhost:3000/uploads/${item.image}`}
+                  alt={item.title}
+                  className="mb-4 h-56 w-full rounded-xl object-cover"
+                />
+              )}
+
+              <h2 className="text-xl font-bold">{item.title}</h2>
+
+              <p className="mt-2 text-gray-600">{item.content}</p>
+
+              <button
+                onClick={() => {
+                  setEditId(item.id);
+                  setTitle(item.title);
+                  setContent(item.content);
+
+                  setPreview(
+                    item.image
+                      ? `http://localhost:3000/uploads/${item.image}`
+                      : "",
+                  );
+                }}
+                className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
               >
-                {item.image && (
-                  <img
-                    src={`http://localhost:3000/uploads/${item.image}`}
-                    alt={item.title}
-                    className="mb-4 h-56 w-full rounded-xl object-cover"
-                  />
-                )}
+                Edit
+              </button>
 
-                <h2 className="text-xl font-bold">{item.title}</h2>
+              <button
+                onClick={() => deleteNews(item.id)}
+                className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
+              >
+                Hapus
+              </button>
+            </div>
+          ))}
 
-                <p className="mt-2 text-gray-600">{item.content}</p>
+          <div className="mt-6 flex items-center justify-center gap-2">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+              className="rounded bg-gray-300 px-4 py-2 disabled:opacity-50"
+            >
+              Prev
+            </button>
 
-                <button
-                  onClick={() => {
-                    setEditId(item.id);
-                    setTitle(item.title);
-                    setContent(item.content);
+            <span>
+              Halaman {currentPage} dari {totalPages}
+            </span>
 
-                    setPreview(
-                      item.image
-                        ? `http://localhost:3000/uploads/${item.image}`
-                        : "",
-                    );
-                  }}
-                  className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() => deleteNews(item.id)}
-                  className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
-                >
-                  Hapus
-                </button>
-              </div>
-            ))}
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(currentPage + 1)}
+              className="rounded bg-gray-300 px-4 py-2 disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
