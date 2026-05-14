@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Sidebar() {
   const router = useRouter();
+  const pathname = usePathname();
 
   const logout = () => {
     localStorage.removeItem("token");
-
     router.push("/");
   };
 
@@ -22,14 +22,22 @@ export default function Sidebar() {
 
         <Link
           href="/dashboard"
-          className="block rounded p-3 hover:bg-gray-700"
+          className={`block rounded p-3 transition ${
+            pathname === "/dashboard"
+              ? "bg-blue-500"
+              : "hover:bg-gray-700"
+          }`}
         >
           📰 Dashboard
         </Link>
 
         <Link
           href="/users"
-          className="block rounded p-3 hover:bg-gray-700"
+          className={`block rounded p-3 transition ${
+            pathname === "/users"
+              ? "bg-blue-500"
+              : "hover:bg-gray-700"
+          }`}
         >
           👥 Kelola User
         </Link>
