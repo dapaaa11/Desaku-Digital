@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Sidebar from "@/components/Sidebar";
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
@@ -69,38 +70,42 @@ export default function UsersPage() {
   };
 
   return (
-    <div className="p-10">
-      <h1 className="mb-6 text-3xl font-bold">Kelola User</h1>
+    <div className="flex">
+      <Sidebar />
 
-      <div className="space-y-4">
-        {users.map((user: any) => (
-          <div key={user.id} className="rounded border p-4 shadow">
-            <h2 className="font-bold">{user.name}</h2>
+      <div className="flex-1 p-10">
+        <h1 className="mb-6 text-3xl font-bold">Kelola User</h1>
 
-            <p>{user.email}</p>
+        <div className="space-y-4">
+          {users.map((user: any) => (
+            <div key={user.id} className="rounded border p-4 shadow">
+              <h2 className="font-bold">{user.name}</h2>
 
-            <p>
-              Role:
-              <span className="ml-2 font-bold">{user.role}</span>
-            </p>
+              <p>{user.email}</p>
 
-            <button
-              onClick={() =>
-                changeRole(user.id, user.role === "ADMIN" ? "USER" : "ADMIN")
-              }
-              className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
-            >
-              Ubah Role
-            </button>
+              <p>
+                Role:
+                <span className="ml-2 font-bold">{user.role}</span>
+              </p>
 
-            <button
-              onClick={() => deleteUser(user.id)}
-              className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
-            >
-              Hapus
-            </button>
-          </div>
-        ))}
+              <button
+                onClick={() =>
+                  changeRole(user.id, user.role === "ADMIN" ? "USER" : "ADMIN")
+                }
+                className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
+              >
+                Ubah Role
+              </button>
+
+              <button
+                onClick={() => deleteUser(user.id)}
+                className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
+              >
+                Hapus
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
