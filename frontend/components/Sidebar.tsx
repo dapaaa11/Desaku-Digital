@@ -65,6 +65,17 @@ export default function Sidebar() {
         </Link>
 
         <Link
+          href="/surat"
+          className={`block rounded p-3 transition ${
+            pathname === "/surat"
+              ? "bg-blue-500"
+              : "hover:bg-gray-700"
+          }`}
+        >
+          📄 Pengajuan Surat
+        </Link>
+
+        <Link
           href="/users"
           className={`block rounded p-3 transition ${
             pathname === "/users"

@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { VillageProfileModule } from './village-profile/village-profile.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { UmkmModule } from './umkm/umkm.module';
+import { SuratModule } from './surat/surat.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { UmkmModule } from './umkm/umkm.module';
     VillageProfileModule,
     GalleryModule,
     UmkmModule,
+    SuratModule,
   ],
 })
 export class AppModule {}

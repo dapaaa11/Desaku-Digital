@@ -69,6 +69,16 @@ model Umkm {
   createdAt   DateTime @default(now())
 }
 
+model Surat {
+  id        Int      @id @default(autoincrement())
+  nama      String
+  nik       String
+  jenis     String
+  keperluan String
+  status    String   @default("DIPROSES")
+  createdAt DateTime @default(now())
+}
+
 enum Role {
   ADMIN
   USER
