@@ -11,6 +11,9 @@ export default function Dashboard() {
   const [content, setContent] = useState("");
   const [editId, setEditId] = useState<number | null>(null);
 
+  const [image, setImage] = useState<File | null>(null);
+  const [preview, setPreview] = useState("");
+
   const router = useRouter();
 
   useEffect(() => {
@@ -171,6 +174,27 @@ export default function Dashboard() {
           onChange={(e) => setContent(e.target.value)}
         />
 
+        <input
+          type="file"
+          className="mb-3 w-full rounded border p-2"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+
+            if (file) {
+              setImage(file);
+              setPreview(URL.createObjectURL(file));
+            }
+          }}
+        />
+
+        {preview && (
+          <img
+            src={preview}
+            alt="Preview"
+            className="mb-4 h-56 w-full rounded-xl object-cover"
+          />
+        )}
+
         <button
           onClick={() => {
             if (editId) {
@@ -191,7 +215,6 @@ export default function Dashboard() {
             key={item.id}
             className="rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
           >
-            
             {item.image && (
               <img
                 src={`http://localhost:3000/uploads/${item.image}`}
