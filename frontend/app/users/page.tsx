@@ -48,6 +48,26 @@ export default function UsersPage() {
     }
   };
 
+  const deleteUser = async (id: number) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const confirmDelete = confirm("Yakin ingin menghapus user?");
+
+      if (!confirmDelete) return;
+
+      await axios.delete(`http://localhost:3000/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      fetchUsers();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="p-10">
       <h1 className="mb-6 text-3xl font-bold">Kelola User</h1>
@@ -71,6 +91,13 @@ export default function UsersPage() {
               className="mt-3 rounded bg-blue-500 px-3 py-1 text-white"
             >
               Ubah Role
+            </button>
+
+            <button
+              onClick={() => deleteUser(user.id)}
+              className="ml-2 mt-3 rounded bg-red-500 px-3 py-1 text-white"
+            >
+              Hapus
             </button>
           </div>
         ))}
