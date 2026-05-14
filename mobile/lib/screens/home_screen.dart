@@ -3,6 +3,7 @@ import 'news_screen.dart';
 import 'profile_screen.dart';
 import 'gallery_screen.dart';
 import 'umkm_screen.dart';
+import 'surat_history_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> menus = [
+      {
+        'icon': Icons.description_outlined,
+        'label': 'Pengajuan Surat',
+        'color': const Color(0xFFE91E63),
+        'screen': const SuratHistoryScreen(),
+      },
       {
         'icon': Icons.newspaper_rounded,
         'label': 'Berita Desa',

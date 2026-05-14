@@ -10,8 +10,9 @@
 - Pengajuan Surat (backend + frontend CMS)
 - Dokumentasi Teknis (API & Database)
 - Setup Mobile App Flutter (Struktur, Provider, Base API Integrasi)
+- Mobile App Flutter (warga) - Fitur Pengajuan Surat
 
 ## Sedang Dikerjakan
-- Mobile App Flutter (warga) - Pengembangan fitur lanjutan
+- Mobile App Flutter (warga) - Fitur Autentikasi / Lanjutan
 
 ## Berikutnya

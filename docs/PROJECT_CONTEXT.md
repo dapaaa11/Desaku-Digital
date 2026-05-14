@@ -44,6 +44,7 @@ PostgreSQL + Prisma
 - Fitur Pengajuan Surat CMS (CRUD dengan fokus admin mengubah status)
 - Dokumentasi API dan Database terpusat (API_DOCUMENTATION.md & DATABASE_SCHEMA.md)
 - Inisialisasi Mobile App Flutter Warga (Provider, Dio, Base API)
+- Mobile App: Fitur Pengajuan Surat (Riwayat, Form Input Validasi, Status Tracking)
 
 ## Progress Log
 - [14 May 2026] Menyelesaikan pembuatan Halaman Profil Desa CMS, integrasi backend dengan FileInterceptor, validasi form, dan upload foto desa.
@@ -54,3 +55,4 @@ PostgreSQL + Prisma
 - [15 May 2026] Menyelesaikan fitur Pengajuan Surat CMS: Pembuatan model Prisma `Surat`, NestJS REST API, halaman frontend admin untuk memperbarui status (Diproses/Selesai/Ditolak), dan integrasi Sidebar. Field request utama diset read-only untuk admin menjaga integritas data.
 - [15 May 2026] Melengkapi dokumentasi teknis project dengan membuat `docs/API_DOCUMENTATION.md` dan `docs/DATABASE_SCHEMA.md` untuk mempermudah pengembangan lanjutan.
 - [15 May 2026] Setup kerangka awal aplikasi Mobile App Flutter menggunakan `Provider` (State Management) dan `Dio` (HTTP Client). Pembuatan kerangka halaman: Splash Screen, Home, Berita, Profil, Galeri, dan UMKM Desa yang telah diintegrasikan dengan Base API Backend (NestJS).
+- [15 May 2026] Menyelesaikan fitur Pengajuan Surat di Mobile App: Menerapkan UI Riwayat Surat (Pull-to-refresh), Form Input (Validasi nama, NIK 16 digit, dropdown jenis surat), dan Detail Status Surat. Terintegrasi ke REST API backend menggunakan arsitektur Provider-Service.

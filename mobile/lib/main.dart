@@ -5,6 +5,7 @@ import 'services/news_service.dart';
 import 'services/village_profile_service.dart';
 import 'services/gallery_service.dart';
 import 'services/umkm_service.dart';
+import 'services/surat_service.dart';
 
 void main() {
   runApp(
@@ -14,6 +15,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => VillageProfileService()),
         ChangeNotifierProvider(create: (_) => GalleryService()),
         ChangeNotifierProvider(create: (_) => UmkmService()),
+        ChangeNotifierProvider(create: (_) => SuratService()),
       ],
       child: const DesakuDigitalApp(),
     ),
