@@ -49,21 +49,26 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post(
-        "http://localhost:3000/news",
-        {
-          title,
-          content,
+      const formData = new FormData();
+
+      formData.append("title", title);
+      formData.append("content", content);
+
+      if (image) {
+        formData.append("image", image);
+      }
+
+      await axios.post("http://localhost:3000/news", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
+      });
 
       setTitle("");
       setContent("");
+      setImage(null);
+      setPreview("");
 
       fetchNews();
     } catch (err) {
