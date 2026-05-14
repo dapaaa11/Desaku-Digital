@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 export default function Dashboard() {
   const [news, setNews] = useState([]);
@@ -133,6 +134,17 @@ export default function Dashboard() {
   };
 
   const deleteNews = async (id: number) => {
+    const result = await Swal.fire({
+      title: "Hapus berita?",
+      text: "Data yang dihapus tidak bisa dikembalikan",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Batal",
+    });
+
+    if (!result.isConfirmed) return;
+
     try {
       const token = localStorage.getItem("token");
 
@@ -147,6 +159,7 @@ export default function Dashboard() {
       toast.success("Berita berhasil dihapus");
     } catch (err) {
       console.error(err);
+
       toast.error("Gagal hapus berita");
     }
   };
