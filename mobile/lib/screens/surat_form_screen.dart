@@ -131,7 +131,7 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
               const SizedBox(height: 16),
 
               DropdownButtonFormField<String>(
-                value: _selectedJenis,
+                initialValue: _selectedJenis,
                 decoration: InputDecoration(
                   labelText: 'Jenis Surat',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
