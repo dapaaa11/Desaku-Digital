@@ -33,21 +33,21 @@ Dengan pendekatan yang sederhana, ramah pengguna, dan mobile-friendly, Desaku Di
 ### Backend
 1. Masuk ke folder `backend`
 2. Run `npm install`
-3. Sesuaikan `.env`
+3. Sesuaikan `.env` (isi `DATABASE_URL` dan `PORT`)
 4. Run `npx prisma generate` dan `npx prisma db push`
-5. Run `npm run start:dev`
+5. Run `npm run build` lalu `npm run start:prod` (untuk production)
 
 ### Frontend CMS
 1. Masuk ke folder `frontend`
 2. Run `npm install`
-3. Sesuaikan `.env.local`
-4. Run `npm run dev`
+3. Buat file `.env` dan tambahkan `NEXT_PUBLIC_API_URL=http://localhost:3000` (sesuaikan dengan URL backend production)
+4. Run `npm run build` lalu `npm start` (untuk production)
 
 ### Mobile App
 1. Masuk ke folder `mobile`
 2. Run `flutter pub get`
-3. Sesuaikan endpoint API di `lib/services/api_config.dart`
-4. Run `flutter run` atau `flutter build apk --release`
+3. Untuk build APK: `flutter build apk --release --dart-define=API_URL=http://your-backend-url.com`
+4. Hasil APK akan tersedia di `build/app/outputs/flutter-apk/app-release.apk`
 
 ## 📄 Versi
-v1.0.0 - Rilis Perdana
+v1.0.0 - Rilis Perdana (Production Ready)

@@ -41,7 +41,11 @@ export class GalleryController {
       storage: diskStorage({
         destination: './uploads',
         filename: (req, file, callback) => {
-          const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1e9) + extname(file.originalname);
+          const uniqueName =
+            Date.now() +
+            '-' +
+            Math.round(Math.random() * 1e9) +
+            extname(file.originalname);
           callback(null, uniqueName);
         },
       }),
@@ -69,7 +73,11 @@ export class GalleryController {
       storage: diskStorage({
         destination: './uploads',
         filename: (req, file, callback) => {
-          const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1e9) + extname(file.originalname);
+          const uniqueName =
+            Date.now() +
+            '-' +
+            Math.round(Math.random() * 1e9) +
+            extname(file.originalname);
           callback(null, uniqueName);
         },
       }),
@@ -83,7 +91,7 @@ export class GalleryController {
     const updateData: any = {};
     if (title !== undefined) updateData.title = title;
     if (file?.filename) updateData.image = file.filename;
-    
+
     return this.galleryService.update(+id, updateData);
   }
 

@@ -5,7 +5,13 @@ import { PrismaService } from '../prisma/prisma.service';
 export class UmkmService {
   constructor(private prisma: PrismaService) {}
 
-  create(data: { name: string; description: string; whatsapp: string; address: string; image?: string }) {
+  create(data: {
+    name: string;
+    description: string;
+    whatsapp: string;
+    address: string;
+    image?: string;
+  }) {
     return this.prisma.umkm.create({ data });
   }
 
@@ -17,7 +23,16 @@ export class UmkmService {
     return this.prisma.umkm.findUnique({ where: { id } });
   }
 
-  update(id: number, data: { name?: string; description?: string; whatsapp?: string; address?: string; image?: string }) {
+  update(
+    id: number,
+    data: {
+      name?: string;
+      description?: string;
+      whatsapp?: string;
+      address?: string;
+      image?: string;
+    },
+  ) {
     return this.prisma.umkm.update({ where: { id }, data });
   }
 

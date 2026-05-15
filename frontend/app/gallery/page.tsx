@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 interface GalleryItem {
   id: number;
   title: string | null;
@@ -30,7 +32,7 @@ export default function GalleryPage() {
   async function fetchGalleries() {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/gallery");
+      const res = await axios.get(`${API_URL}/gallery`);
       setGalleries(res.data);
     } catch (error) {
       console.error(error);
@@ -104,7 +106,7 @@ export default function GalleryPage() {
           formData.append("image", selectedFiles[0]); // Only one image for update
         }
 
-        await axios.put(`http://localhost:3000/gallery/${editId}`, formData, {
+        await axios.put(`${API_URL}/gallery/${editId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -120,7 +122,7 @@ export default function GalleryPage() {
           formData.append("title", uploadTitle);
         }
 
-        await axios.post("http://localhost:3000/gallery", formData, {
+        await axios.post(`${API_URL}/gallery`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -145,7 +147,7 @@ export default function GalleryPage() {
     // Clear selected files and previews
     previews.forEach(p => URL.revokeObjectURL(p));
     setSelectedFiles([]);
-    setPreviews([`http://localhost:3000/uploads/${item.image}`]);
+    setPreviews([`${API_URL}/uploads/${item.image}`]);
     
     // Scroll to top to see the form
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -167,7 +169,7 @@ export default function GalleryPage() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/gallery/${id}`, {
+      await axios.delete(`${API_URL}/gallery/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -281,7 +283,7 @@ export default function GalleryPage() {
                     <div className="aspect-square bg-gray-100">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={`http://localhost:3000/uploads/${item.image}`}
+                        src={`${API_URL}/uploads/${item.image}`}
                         alt={item.title || "Galeri"}
                         className="h-full w-full object-cover"
                         loading="lazy"

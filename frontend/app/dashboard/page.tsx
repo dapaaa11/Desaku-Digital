@@ -16,6 +16,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export default function Dashboard() {
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState("");
@@ -40,7 +42,7 @@ export default function Dashboard() {
 
       if (!token) return;
 
-      const res = await axios.get("http://localhost:3000/users", {
+      const res = await axios.get(`${API_URL}/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +60,7 @@ export default function Dashboard() {
 
       if (!token) return;
 
-      const res = await axios.get("http://localhost:3000/news", {
+      const res = await axios.get(`${API_URL}/news`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -97,7 +99,7 @@ export default function Dashboard() {
         formData.append("image", image);
       }
 
-      await axios.post("http://localhost:3000/news", formData, {
+      await axios.post(`${API_URL}/news`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -127,7 +129,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:3000/news/${editId}`,
+        `${API_URL}/news/${editId}`,
         {
           title,
           content,
@@ -169,7 +171,7 @@ export default function Dashboard() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:3000/news/${id}`, {
+      await axios.delete(`${API_URL}/news/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -306,7 +308,7 @@ export default function Dashboard() {
             >
               {item.image && (
                 <img
-                  src={`http://localhost:3000/uploads/${item.image}`}
+                  src={`${API_URL}/uploads/${item.image}`}
                   alt={item.title}
                   className="mb-4 h-56 w-full rounded-xl object-cover"
                 />
@@ -324,7 +326,7 @@ export default function Dashboard() {
 
                   setPreview(
                     item.image
-                      ? `http://localhost:3000/uploads/${item.image}`
+                      ? `${API_URL}/uploads/${item.image}`
                       : "",
                   );
                 }}

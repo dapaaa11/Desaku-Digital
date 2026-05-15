@@ -5,7 +5,12 @@ import { PrismaService } from '../prisma/prisma.service';
 export class SuratService {
   constructor(private prisma: PrismaService) {}
 
-  create(data: { nama: string; nik: string; jenis: string; keperluan: string }) {
+  create(data: {
+    nama: string;
+    nik: string;
+    jenis: string;
+    keperluan: string;
+  }) {
     return this.prisma.surat.create({ data });
   }
 
@@ -17,7 +22,16 @@ export class SuratService {
     return this.prisma.surat.findUnique({ where: { id } });
   }
 
-  update(id: number, data: { nama?: string; nik?: string; jenis?: string; keperluan?: string; status?: string }) {
+  update(
+    id: number,
+    data: {
+      nama?: string;
+      nik?: string;
+      jenis?: string;
+      keperluan?: string;
+      status?: string;
+    },
+  ) {
     return this.prisma.surat.update({ where: { id }, data });
   }
 

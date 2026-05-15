@@ -4,6 +4,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +15,7 @@ export default function Home() {
 
   const login = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
+      const res = await axios.post(`${API_URL}/auth/login`, {
         email,
         password,
       });

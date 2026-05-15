@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import toast from "react-hot-toast";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
+
 interface Profile {
   id?: number;
   name?: string;
@@ -34,7 +37,7 @@ export default function VillageProfilePage() {
   async function fetchProfile() {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/village-profile");
+      const res = await axios.get(`${API_URL}/village-profile`);
       if (res.data && res.data.length > 0) {
         const data = res.data[0];
         setProfile(data);
@@ -46,7 +49,7 @@ export default function VillageProfilePage() {
           address: data.address || "",
         });
         if (data.image) {
-          setPreview(`http://localhost:3000/uploads/${data.image}`);
+          setPreview(`${API_URL}/uploads/${data.image}`);
         }
       }
     } catch (error) {
@@ -63,6 +66,7 @@ export default function VillageProfilePage() {
       router.push("/");
       return;
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchProfile();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -120,7 +124,7 @@ export default function VillageProfilePage() {
       }
 
       if (profile && profile.id) {
-        await axios.put(`http://localhost:3000/village-profile/${profile.id}`, payload, {
+        await axios.put(`${API_URL}/village-profile/${profile.id}`, payload, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -128,7 +132,7 @@ export default function VillageProfilePage() {
         });
         toast.success("Profil desa berhasil diperbarui");
       } else {
-        await axios.post("http://localhost:3000/village-profile", payload, {
+        await axios.post(`${API_URL}/village-profile`, payload, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",

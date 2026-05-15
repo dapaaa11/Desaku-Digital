@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
   const router = useRouter();
@@ -13,7 +15,7 @@ export default function UsersPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:3000/users", {
+      const res = await axios.get(`${API_URL}/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,7 +42,7 @@ export default function UsersPage() {
       const token = localStorage.getItem("token");
 
       await axios.patch(
-        `http://localhost:3000/users/${id}/role`,
+        `${API_URL}/users/${id}/role`,
         {
           role,
         },
@@ -65,7 +67,7 @@ export default function UsersPage() {
 
       if (!confirmDelete) return;
 
-      await axios.delete(`http://localhost:3000/users/${id}`, {
+      await axios.delete(`${API_URL}/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

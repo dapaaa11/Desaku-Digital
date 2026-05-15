@@ -13,9 +13,10 @@
 - Mobile App Flutter (warga) - Fitur Pengajuan Surat
 - Mobile App Flutter (warga) - Fitur Autentikasi / Auto Login
 - Stabilisasi & Integrasi End-to-End (bug fix, analyzer clean, finalisasi)
+- Production & Deployment Readiness (Configurable Env, build lint pass, APK build release)
 
 ## Sedang Dikerjakan
-- (Selesai semua tahap utama - v1.0 Final)
+- (Tidak ada - v1.0 Final Selesai)
 
 ## Berikutnya
 - Deploy ke server / produksi

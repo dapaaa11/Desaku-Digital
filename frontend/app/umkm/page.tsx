@@ -16,6 +16,8 @@ interface UmkmItem {
   image: string | null;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export default function UmkmPage() {
   const router = useRouter();
   const [umkms, setUmkms] = useState<UmkmItem[]>([]);
@@ -37,7 +39,7 @@ export default function UmkmPage() {
   async function fetchUmkms() {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/umkm");
+      const res = await axios.get(`${API_URL}/umkm`);
       setUmkms(res.data);
     } catch (error) {
       console.error(error);
@@ -121,7 +123,7 @@ export default function UmkmPage() {
 
       if (editId) {
         // Update mode
-        await axios.put(`http://localhost:3000/umkm/${editId}`, formData, {
+        await axios.put(`${API_URL}/umkm/${editId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -136,7 +138,7 @@ export default function UmkmPage() {
           return;
         }
 
-        await axios.post("http://localhost:3000/umkm", formData, {
+        await axios.post(`${API_URL}/umkm`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -167,7 +169,7 @@ export default function UmkmPage() {
       URL.revokeObjectURL(preview);
     }
     setSelectedFile(null);
-    setPreview(item.image ? `http://localhost:3000/uploads/${item.image}` : "");
+    setPreview(item.image ? `${API_URL}/uploads/${item.image}` : "");
     
     // Scroll to top to see the form
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -189,7 +191,7 @@ export default function UmkmPage() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/umkm/${id}`, {
+      await axios.delete(`${API_URL}/umkm/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -327,7 +329,7 @@ export default function UmkmPage() {
                       {item.image ? (
                         /* eslint-disable-next-line @next/next/no-img-element */
                         <img
-                          src={`http://localhost:3000/uploads/${item.image}`}
+                          src={`${API_URL}/uploads/${item.image}`}
                           alt={item.name}
                           className="h-full w-full object-cover"
                           loading="lazy"

@@ -17,6 +17,8 @@ interface SuratItem {
   createdAt: string;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export default function SuratPage() {
   const router = useRouter();
   const [surats, setSurats] = useState<SuratItem[]>([]);
@@ -34,7 +36,7 @@ export default function SuratPage() {
   async function fetchSurats() {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/surat");
+      const res = await axios.get(`${API_URL}/surat`);
       setSurats(res.data);
     } catch (error) {
       console.error(error);
@@ -81,7 +83,7 @@ export default function SuratPage() {
       setUpdating(true);
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:3000/surat/${editId}`,
+        `${API_URL}/surat/${editId}`,
         { status },
         {
           headers: {
@@ -116,7 +118,7 @@ export default function SuratPage() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/surat/${id}`, {
+      await axios.delete(`${API_URL}/surat/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
