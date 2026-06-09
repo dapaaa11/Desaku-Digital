@@ -22,3 +22,5 @@ export class VillageProfileService {
     });
   }
 }
+
+// style: format check
