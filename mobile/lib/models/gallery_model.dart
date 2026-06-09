@@ -20,3 +20,5 @@ class GalleryModel {
     );
   }
 }
+
+// style: format check
