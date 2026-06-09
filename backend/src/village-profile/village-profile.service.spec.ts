@@ -16,3 +16,5 @@ describe('VillageProfileService', () => {
     expect(service).toBeDefined();
   });
 });
+
+// style: format check
