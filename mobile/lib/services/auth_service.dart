@@ -35,10 +35,10 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final response = await ApiClient.dio.post('/auth/login', data: {
-        'email': email.trim(),
-        'password': password,
-      });
+      final response = await ApiClient.dio.post(
+        '/auth/login',
+        data: {'email': email.trim(), 'password': password},
+      );
 
       final data = response.data;
       _token = data['access_token'];
@@ -76,16 +76,21 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await ApiClient.dio.post('/auth/register', data: {
-        'name': name.trim(),
-        'email': email.trim(),
-        'password': password,
-      });
+      await ApiClient.dio.post(
+        '/auth/register',
+        data: {
+          'name': name.trim(),
+          'email': email.trim(),
+          'password': password,
+        },
+      );
       notifyListeners();
       return true;
     } on DioException catch (e) {
       final msg = e.response?.data?['message'];
-      _error = msg is String ? msg : 'Email sudah digunakan atau terjadi kesalahan.';
+      _error = msg is String
+          ? msg
+          : 'Email sudah digunakan atau terjadi kesalahan.';
       notifyListeners();
       return false;
     } finally {

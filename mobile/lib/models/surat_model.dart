@@ -30,11 +30,6 @@ class SuratModel {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'nama': nama,
-      'nik': nik,
-      'jenis': jenis,
-      'keperluan': keperluan,
-    };
+    return {'nama': nama, 'nik': nik, 'jenis': jenis, 'keperluan': keperluan};
   }
 }
