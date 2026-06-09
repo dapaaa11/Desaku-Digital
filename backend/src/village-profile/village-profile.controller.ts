@@ -94,3 +94,5 @@ export class VillageProfileController {
     return this.villageProfileService.update(+id, updateData);
   }
 }
+
+// style: format check
