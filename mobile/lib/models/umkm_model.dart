@@ -26,3 +26,5 @@ class UmkmModel {
     );
   }
 }
+
+// style: format check
