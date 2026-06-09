@@ -36,3 +36,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// style: format check
