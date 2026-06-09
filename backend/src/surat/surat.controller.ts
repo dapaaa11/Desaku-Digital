@@ -66,3 +66,5 @@ export class SuratController {
     return this.suratService.remove(+id);
   }
 }
+
+// style: format check
