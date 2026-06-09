@@ -39,3 +39,5 @@ export class SuratService {
     return this.prisma.surat.delete({ where: { id } });
   }
 }
+
+// style: format check
