@@ -102,3 +102,5 @@ export class GalleryController {
     return this.galleryService.remove(+id);
   }
 }
+
+// style: format check
