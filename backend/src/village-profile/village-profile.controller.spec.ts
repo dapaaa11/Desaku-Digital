@@ -18,3 +18,5 @@ describe('VillageProfileController', () => {
     expect(controller).toBeDefined();
   });
 });
+
+// style: format check
