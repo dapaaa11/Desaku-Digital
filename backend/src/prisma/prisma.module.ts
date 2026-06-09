@@ -6,3 +6,5 @@ import { PrismaService } from './prisma.service';
   exports: [PrismaService], // WAJIB
 })
 export class PrismaModule {}
+
+// style: format check
