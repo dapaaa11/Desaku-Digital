@@ -32,3 +32,5 @@ class VillageProfileService extends ChangeNotifier {
     }
   }
 }
+
+// style: format check
