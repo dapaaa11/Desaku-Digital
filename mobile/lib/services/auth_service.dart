@@ -111,3 +111,5 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+// style: format check
