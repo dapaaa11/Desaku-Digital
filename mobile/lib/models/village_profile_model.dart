@@ -29,3 +29,5 @@ class VillageProfileModel {
     );
   }
 }
+
+// style: format check
