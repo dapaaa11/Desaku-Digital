@@ -32,3 +32,5 @@ export class NewsService {
     });
   }
 }
+
+// style: format check
