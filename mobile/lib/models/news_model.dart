@@ -23,3 +23,5 @@ class NewsModel {
     );
   }
 }
+
+// style: format check
