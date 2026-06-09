@@ -9,3 +9,5 @@ import { PrismaModule } from '../prisma/prisma.module';
   providers: [NewsService],
 })
 export class NewsModule {}
+
+// style: format check
