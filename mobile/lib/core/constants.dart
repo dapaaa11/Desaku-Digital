@@ -8,3 +8,5 @@ class AppConstants {
   );
   static const String uploadsUrl = '$baseUrl/uploads';
 }
+
+// style: format check
