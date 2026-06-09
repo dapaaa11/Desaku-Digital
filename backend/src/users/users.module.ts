@@ -8,3 +8,5 @@ import { PrismaService } from '../prisma/prisma.service';
   providers: [UsersService, PrismaService],
 })
 export class UsersModule {}
+
+// style: format check
