@@ -8,3 +8,5 @@ import { PrismaService } from '../prisma/prisma.service';
   providers: [SuratService, PrismaService],
 })
 export class SuratModule {}
+
+// style: format check
