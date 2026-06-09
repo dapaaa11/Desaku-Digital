@@ -41,14 +41,14 @@ class _SplashScreenState extends State<SplashScreen>
 
     if (authService.isLoggedIn) {
       // Jika token tersimpan, langsung ke Home
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
-      );
+      Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (_) => const HomeScreen()));
     } else {
       // Jika belum login, ke Login
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const LoginScreen()),
-      );
+      Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (_) => const LoginScreen()));
     }
   }
 
@@ -75,12 +75,20 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Icon(Icons.location_city, size: 60, color: Color(0xFF1E3A5F)),
+                child: const Icon(
+                  Icons.location_city,
+                  size: 60,
+                  color: Color(0xFF1E3A5F),
+                ),
               ),
               const SizedBox(height: 24),
               const Text(
                 'Desaku Digital',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(height: 8),
               const Text(

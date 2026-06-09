@@ -41,7 +41,10 @@ class _NewsScreenState extends State<NewsScreen> {
                 children: [
                   const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(service.error!, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    service.error!,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: service.fetchNews,
@@ -62,13 +65,17 @@ class _NewsScreenState extends State<NewsScreen> {
               final item = service.news[index];
               return Card(
                 elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (item.image != null)
                       ClipRRect(
-                        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(16),
+                        ),
                         child: Image.network(
                           '${AppConstants.uploadsUrl}/${item.image}',
                           width: double.infinity,
@@ -77,7 +84,10 @@ class _NewsScreenState extends State<NewsScreen> {
                           errorBuilder: (_, __, ___) => Container(
                             height: 120,
                             color: Colors.grey[200],
-                            child: const Icon(Icons.broken_image, color: Colors.grey),
+                            child: const Icon(
+                              Icons.broken_image,
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
                       ),
@@ -99,12 +109,18 @@ class _NewsScreenState extends State<NewsScreen> {
                             item.content,
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(color: Colors.black54, fontSize: 13),
+                            style: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 13,
+                            ),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             '${item.createdAt.day}/${item.createdAt.month}/${item.createdAt.year}',
-                            style: const TextStyle(color: Colors.grey, fontSize: 12),
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12,
+                            ),
                           ),
                         ],
                       ),

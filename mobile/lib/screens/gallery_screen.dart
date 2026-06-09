@@ -41,7 +41,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 children: [
                   const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(service.error!, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    service.error!,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: service.fetchGallery,
@@ -74,7 +77,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => Container(
                         color: Colors.grey[300],
-                        child: const Icon(Icons.broken_image, color: Colors.grey),
+                        child: const Icon(
+                          Icons.broken_image,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                     if (item.title != null && item.title!.isNotEmpty)
@@ -87,7 +93,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
                           color: Colors.black45,
                           child: Text(
                             item.title!,
-                            style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),

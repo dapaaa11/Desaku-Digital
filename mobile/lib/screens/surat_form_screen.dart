@@ -11,11 +11,11 @@ class SuratFormScreen extends StatefulWidget {
 
 class _SuratFormScreenState extends State<SuratFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  
+
   final _namaController = TextEditingController();
   final _nikController = TextEditingController();
   final _keperluanController = TextEditingController();
-  
+
   String _selectedJenis = 'Surat Domisili';
   final List<String> _jenisSuratOptions = [
     'Surat Domisili',
@@ -79,7 +79,10 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text('Buat Pengajuan', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Buat Pengajuan',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: const Color(0xFF1E3A5F),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -95,18 +98,21 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
                 style: TextStyle(color: Colors.black54, fontSize: 14),
               ),
               const SizedBox(height: 24),
-              
+
               // NAMA
               TextFormField(
                 controller: _namaController,
                 decoration: InputDecoration(
                   labelText: 'Nama Lengkap',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) return 'Nama tidak boleh kosong';
+                  if (value == null || value.trim().isEmpty)
+                    return 'Nama tidak boleh kosong';
                   return null;
                 },
               ),
@@ -118,12 +124,15 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'NIK (16 Digit)',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) return 'NIK tidak boleh kosong';
+                  if (value == null || value.trim().isEmpty)
+                    return 'NIK tidak boleh kosong';
                   if (value.trim().length != 16) return 'NIK harus 16 digit';
                   return null;
                 },
@@ -134,15 +143,14 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
                 initialValue: _selectedJenis,
                 decoration: InputDecoration(
                   labelText: 'Jenis Surat',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
                 items: _jenisSuratOptions.map((jenis) {
-                  return DropdownMenuItem(
-                    value: jenis,
-                    child: Text(jenis),
-                  );
+                  return DropdownMenuItem(value: jenis, child: Text(jenis));
                 }).toList(),
                 onChanged: (value) {
                   if (value != null) {
@@ -161,12 +169,15 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Keperluan',
                   alignLabelWithHint: true,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) return 'Keperluan tidak boleh kosong';
+                  if (value == null || value.trim().isEmpty)
+                    return 'Keperluan tidak boleh kosong';
                   return null;
                 },
               ),
@@ -180,15 +191,26 @@ class _SuratFormScreenState extends State<SuratFormScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1E3A5F),
                     foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   child: _isSubmitting
                       ? const SizedBox(
                           height: 24,
                           width: 24,
-                          child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 2,
+                          ),
                         )
-                      : const Text('Kirim Pengajuan', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      : const Text(
+                          'Kirim Pengajuan',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                 ),
               ),
             ],

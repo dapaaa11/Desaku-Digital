@@ -33,7 +33,10 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1E3A5F),
-        title: const Text('Riwayat Pengajuan', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Riwayat Pengajuan',
+          style: TextStyle(color: Colors.white),
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
       ),
@@ -42,7 +45,7 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
           if (service.isLoading && service.surats.isEmpty) {
             return const Center(child: CircularProgressIndicator());
           }
-          
+
           if (service.error != null && service.surats.isEmpty) {
             return Center(
               child: Column(
@@ -50,7 +53,11 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                 children: [
                   const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(service.error!, style: const TextStyle(color: Colors.grey), textAlign: TextAlign.center),
+                  Text(
+                    service.error!,
+                    style: const TextStyle(color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: service.fetchSurats,
@@ -98,7 +105,9 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                   borderRadius: BorderRadius.circular(16),
                   child: Card(
                     elevation: 1,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Row(
@@ -106,10 +115,15 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF1E3A5F).withValues(alpha: 0.1),
+                              color: const Color(
+                                0xFF1E3A5F,
+                              ).withValues(alpha: 0.1),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.description_outlined, color: Color(0xFF1E3A5F)),
+                            child: const Icon(
+                              Icons.description_outlined,
+                              color: Color(0xFF1E3A5F),
+                            ),
                           ),
                           const SizedBox(width: 16),
                           Expanded(
@@ -118,22 +132,37 @@ class _SuratHistoryScreenState extends State<SuratHistoryScreen> {
                               children: [
                                 Text(
                                   item.jenis,
-                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
                                   '${item.createdAt.day}/${item.createdAt.month}/${item.createdAt.year}',
-                                  style: const TextStyle(color: Colors.grey, fontSize: 12),
+                                  style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
                             decoration: BoxDecoration(
-                              color: _getStatusColor(item.status).withValues(alpha: 0.1),
+                              color: _getStatusColor(
+                                item.status,
+                              ).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: _getStatusColor(item.status).withValues(alpha: 0.5)),
+                              border: Border.all(
+                                color: _getStatusColor(
+                                  item.status,
+                                ).withValues(alpha: 0.5),
+                              ),
                             ),
                             child: Text(
                               item.status,

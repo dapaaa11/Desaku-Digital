@@ -41,7 +41,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(service.error!, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    service.error!,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: service.fetchProfile,
@@ -67,13 +70,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         width: double.infinity,
                         height: 200,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(height: 200, color: const Color(0xFF1E3A5F)),
+                        errorBuilder: (_, __, ___) => Container(
+                          height: 200,
+                          color: const Color(0xFF1E3A5F),
+                        ),
                       )
                     else
                       Container(
                         height: 200,
                         color: const Color(0xFF1E3A5F),
-                        child: const Center(child: Icon(Icons.account_balance, size: 80, color: Colors.white)),
+                        child: const Center(
+                          child: Icon(
+                            Icons.account_balance,
+                            size: 80,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     Positioned(
                       bottom: 0,
@@ -108,10 +120,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      _InfoSection(title: 'Tentang Desa', content: profile.about, icon: Icons.info_outline),
-                      _InfoSection(title: 'Visi', content: profile.vision, icon: Icons.visibility_outlined),
-                      _InfoSection(title: 'Misi', content: profile.mission, icon: Icons.flag_outlined),
-                      _InfoSection(title: 'Alamat', content: profile.address, icon: Icons.location_on_outlined),
+                      _InfoSection(
+                        title: 'Tentang Desa',
+                        content: profile.about,
+                        icon: Icons.info_outline,
+                      ),
+                      _InfoSection(
+                        title: 'Visi',
+                        content: profile.vision,
+                        icon: Icons.visibility_outlined,
+                      ),
+                      _InfoSection(
+                        title: 'Misi',
+                        content: profile.mission,
+                        icon: Icons.flag_outlined,
+                      ),
+                      _InfoSection(
+                        title: 'Alamat',
+                        content: profile.address,
+                        icon: Icons.location_on_outlined,
+                      ),
                     ],
                   ),
                 ),
@@ -129,7 +157,11 @@ class _InfoSection extends StatelessWidget {
   final String content;
   final IconData icon;
 
-  const _InfoSection({required this.title, required this.content, required this.icon});
+  const _InfoSection({
+    required this.title,
+    required this.content,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -142,13 +174,29 @@ class _InfoSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(children: [
-              Icon(icon, size: 20, color: const Color(0xFF1E3A5F)),
-              const SizedBox(width: 8),
-              Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xFF1E3A5F))),
-            ]),
+            Row(
+              children: [
+                Icon(icon, size: 20, color: const Color(0xFF1E3A5F)),
+                const SizedBox(width: 8),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Color(0xFF1E3A5F),
+                  ),
+                ),
+              ],
+            ),
             const Divider(height: 16),
-            Text(content, style: const TextStyle(fontSize: 14, color: Colors.black87, height: 1.5)),
+            Text(
+              content,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.black87,
+                height: 1.5,
+              ),
+            ),
           ],
         ),
       ),

@@ -25,7 +25,10 @@ class SuratDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
       appBar: AppBar(
-        title: const Text('Detail Pengajuan', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Detail Pengajuan',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: const Color(0xFF1E3A5F),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -36,7 +39,9 @@ class SuratDetailScreen extends StatelessWidget {
             // Status Card
             Card(
               elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Row(
@@ -76,7 +81,9 @@ class SuratDetailScreen extends StatelessWidget {
             // Detail Card
             Card(
               elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -93,8 +100,10 @@ class SuratDetailScreen extends StatelessWidget {
                     const Divider(height: 24),
                     _buildInfoRow('Jenis Surat', surat.jenis),
                     const SizedBox(height: 12),
-                    _buildInfoRow('Tanggal Pengajuan', 
-                      '${surat.createdAt.day}/${surat.createdAt.month}/${surat.createdAt.year}'),
+                    _buildInfoRow(
+                      'Tanggal Pengajuan',
+                      '${surat.createdAt.day}/${surat.createdAt.month}/${surat.createdAt.year}',
+                    ),
                     const SizedBox(height: 12),
                     _buildInfoRow('Keperluan', surat.keperluan),
                     const Divider(height: 32),
@@ -126,7 +135,10 @@ class SuratDetailScreen extends StatelessWidget {
       children: [
         Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
         const SizedBox(height: 4),
-        Text(value, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+        Text(
+          value,
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+        ),
       ],
     );
   }

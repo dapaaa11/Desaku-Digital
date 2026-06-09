@@ -73,12 +73,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Icon(Icons.location_city, size: 48, color: Color(0xFF1E3A5F)),
+                  child: const Icon(
+                    Icons.location_city,
+                    size: 48,
+                    color: Color(0xFF1E3A5F),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 const Text(
                   'Buat Akun Baru',
-                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
                 const SizedBox(height: 6),
                 const Text(
@@ -111,10 +119,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: InputDecoration(
                             labelText: 'Nama Lengkap',
                             prefixIcon: const Icon(Icons.person_outlined),
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                           validator: (v) {
-                            if (v == null || v.trim().isEmpty) return 'Nama wajib diisi';
+                            if (v == null || v.trim().isEmpty)
+                              return 'Nama wajib diisi';
                             return null;
                           },
                         ),
@@ -125,11 +136,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             prefixIcon: const Icon(Icons.email_outlined),
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                           validator: (v) {
-                            if (v == null || v.isEmpty) return 'Email wajib diisi';
-                            if (!v.contains('@')) return 'Format email tidak valid';
+                            if (v == null || v.isEmpty)
+                              return 'Email wajib diisi';
+                            if (!v.contains('@'))
+                              return 'Format email tidak valid';
                             return null;
                           },
                         ),
@@ -141,14 +156,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             labelText: 'Password',
                             prefixIcon: const Icon(Icons.lock_outlined),
                             suffixIcon: IconButton(
-                              icon: Icon(_obscurePassword ? Icons.visibility_outlined : Icons.visibility_off_outlined),
-                              onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_outlined
+                                    : Icons.visibility_off_outlined,
+                              ),
+                              onPressed: () => setState(
+                                () => _obscurePassword = !_obscurePassword,
+                              ),
                             ),
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                           validator: (v) {
-                            if (v == null || v.isEmpty) return 'Password wajib diisi';
-                            if (v.length < 6) return 'Password minimal 6 karakter';
+                            if (v == null || v.isEmpty)
+                              return 'Password wajib diisi';
+                            if (v.length < 6)
+                              return 'Password minimal 6 karakter';
                             return null;
                           },
                         ),
@@ -162,15 +187,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF1E3A5F),
                                   foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
                                 ),
                                 child: auth.isLoading
                                     ? const SizedBox(
                                         height: 22,
                                         width: 22,
-                                        child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                                        child: CircularProgressIndicator(
+                                          color: Colors.white,
+                                          strokeWidth: 2,
+                                        ),
                                       )
-                                    : const Text('Daftar', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                    : const Text(
+                                        'Daftar',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                               ),
                             );
                           },
@@ -183,10 +219,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Sudah punya akun?', style: TextStyle(color: Colors.white70)),
+                    const Text(
+                      'Sudah punya akun?',
+                      style: TextStyle(color: Colors.white70),
+                    ),
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text('Masuk', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      child: const Text(
+                        'Masuk',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),

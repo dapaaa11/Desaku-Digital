@@ -41,7 +41,10 @@ class _UmkmScreenState extends State<UmkmScreen> {
                 children: [
                   const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text(service.error!, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    service.error!,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: service.fetchUmkms,
@@ -62,12 +65,16 @@ class _UmkmScreenState extends State<UmkmScreen> {
               final item = service.umkms[index];
               return Card(
                 elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Row(
                   children: [
                     // Gambar UMKM
                     ClipRRect(
-                      borderRadius: const BorderRadius.horizontal(left: Radius.circular(16)),
+                      borderRadius: const BorderRadius.horizontal(
+                        left: Radius.circular(16),
+                      ),
                       child: item.image != null
                           ? Image.network(
                               '${AppConstants.uploadsUrl}/${item.image}',
@@ -78,14 +85,20 @@ class _UmkmScreenState extends State<UmkmScreen> {
                                 width: 110,
                                 height: 120,
                                 color: Colors.grey[200],
-                                child: const Icon(Icons.storefront, color: Colors.grey),
+                                child: const Icon(
+                                  Icons.storefront,
+                                  color: Colors.grey,
+                                ),
                               ),
                             )
                           : Container(
                               width: 110,
                               height: 120,
                               color: Colors.grey[200],
-                              child: const Icon(Icons.storefront, color: Colors.grey),
+                              child: const Icon(
+                                Icons.storefront,
+                                color: Colors.grey,
+                              ),
                             ),
                     ),
                     // Info UMKM
@@ -108,20 +121,53 @@ class _UmkmScreenState extends State<UmkmScreen> {
                               item.description,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 12, color: Colors.black54),
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
                             ),
                             const SizedBox(height: 8),
-                            Row(children: [
-                              const Icon(Icons.phone, size: 14, color: Colors.green),
-                              const SizedBox(width: 4),
-                              Expanded(child: Text(item.whatsapp, style: const TextStyle(fontSize: 12, color: Colors.black54), overflow: TextOverflow.ellipsis)),
-                            ]),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.phone,
+                                  size: 14,
+                                  color: Colors.green,
+                                ),
+                                const SizedBox(width: 4),
+                                Expanded(
+                                  child: Text(
+                                    item.whatsapp,
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.black54,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
                             const SizedBox(height: 4),
-                            Row(children: [
-                              const Icon(Icons.location_on, size: 14, color: Colors.red),
-                              const SizedBox(width: 4),
-                              Expanded(child: Text(item.address, style: const TextStyle(fontSize: 12, color: Colors.black54), overflow: TextOverflow.ellipsis)),
-                            ]),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on,
+                                  size: 14,
+                                  color: Colors.red,
+                                ),
+                                const SizedBox(width: 4),
+                                Expanded(
+                                  child: Text(
+                                    item.address,
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.black54,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
