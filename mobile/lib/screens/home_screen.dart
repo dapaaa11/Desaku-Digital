@@ -226,3 +226,5 @@ class _MenuCard extends StatelessWidget {
     );
   }
 }
+
+// style: format check
