@@ -33,3 +33,5 @@ class SuratModel {
     return {'nama': nama, 'nik': nik, 'jenis': jenis, 'keperluan': keperluan};
   }
 }
+
+// style: format check
