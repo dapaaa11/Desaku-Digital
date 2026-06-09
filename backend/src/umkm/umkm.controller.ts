@@ -109,3 +109,5 @@ export class UmkmController {
     return this.umkmService.remove(+id);
   }
 }
+
+// style: format check
