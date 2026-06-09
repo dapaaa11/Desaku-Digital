@@ -36,3 +36,5 @@ export class UsersController {
     return this.usersService.remove(Number(id));
   }
 }
+
+// style: format check
