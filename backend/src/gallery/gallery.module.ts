@@ -8,3 +8,5 @@ import { PrismaService } from '../prisma/prisma.service';
   providers: [GalleryService, PrismaService],
 })
 export class GalleryModule {}
+
+// style: format check
