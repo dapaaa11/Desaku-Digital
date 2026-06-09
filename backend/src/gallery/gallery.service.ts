@@ -29,3 +29,5 @@ export class GalleryService {
     return this.prisma.gallery.delete({ where: { id } });
   }
 }
+
+// style: format check
