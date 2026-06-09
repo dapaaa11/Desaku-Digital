@@ -47,3 +47,5 @@ class SuratService extends ChangeNotifier {
     }
   }
 }
+
+// style: format check
