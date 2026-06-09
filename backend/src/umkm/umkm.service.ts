@@ -40,3 +40,5 @@ export class UmkmService {
     return this.prisma.umkm.delete({ where: { id } });
   }
 }
+
+// style: format check
