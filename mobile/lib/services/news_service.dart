@@ -29,3 +29,5 @@ class NewsService extends ChangeNotifier {
     }
   }
 }
+
+// style: format check
