@@ -318,3 +318,5 @@ export default function GalleryPage() {
     </div>
   );
 }
+
+// style: format check
