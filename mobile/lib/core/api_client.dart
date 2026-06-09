@@ -42,3 +42,5 @@ class ApiClient {
     _dio = null;
   }
 }
+
+// style: format check
