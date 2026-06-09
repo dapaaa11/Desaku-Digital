@@ -8,3 +8,5 @@ import { PrismaService } from '../prisma/prisma.service';
   providers: [VillageProfileService, PrismaService],
 })
 export class VillageProfileModule {}
+
+// style: format check
