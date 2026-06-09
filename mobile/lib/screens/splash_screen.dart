@@ -104,3 +104,5 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
+
+// style: format check
