@@ -73,3 +73,5 @@ export class NewsController {
     return this.newsService.remove(Number(id));
   }
 }
+
+// style: format check
