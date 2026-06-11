@@ -4,3 +4,5 @@ import { CreateUmkmDto } from './create-umkm.dto';
 export class UpdateUmkmDto extends PartialType(CreateUmkmDto) {}
 
 // style: format check
+
+// style: format check
