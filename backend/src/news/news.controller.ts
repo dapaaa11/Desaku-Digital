@@ -75,3 +75,5 @@ export class NewsController {
 }
 
 // style: format check
+
+// style: format check
