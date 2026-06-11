@@ -10,3 +10,5 @@ import { PrismaService } from '../prisma/prisma.service';
 export class VillageProfileModule {}
 
 // style: format check
+
+// style: format check
