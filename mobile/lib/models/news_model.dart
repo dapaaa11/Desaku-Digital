@@ -25,3 +25,5 @@ class NewsModel {
 }
 
 // style: format check
+
+// style: format check
