@@ -280,3 +280,5 @@ export default function VillageProfilePage() {
 }
 
 // style: format check
+
+// style: format check
