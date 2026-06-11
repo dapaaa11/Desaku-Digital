@@ -6,3 +6,5 @@ export class UpdateVillageProfileDto extends PartialType(
 ) {}
 
 // style: format check
+
+// style: format check
