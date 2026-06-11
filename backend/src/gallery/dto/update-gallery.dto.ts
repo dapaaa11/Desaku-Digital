@@ -4,3 +4,5 @@ import { CreateGalleryDto } from './create-gallery.dto';
 export class UpdateGalleryDto extends PartialType(CreateGalleryDto) {}
 
 // style: format check
+
+// style: format check
