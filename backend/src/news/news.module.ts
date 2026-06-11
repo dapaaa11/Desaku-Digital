@@ -11,3 +11,5 @@ import { PrismaModule } from '../prisma/prisma.module';
 export class NewsModule {}
 
 // style: format check
+
+// style: format check
