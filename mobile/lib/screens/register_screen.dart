@@ -245,3 +245,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
 }
 
 // style: format check
+
+// style: format check
